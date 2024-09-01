@@ -46,71 +46,71 @@
     "commands": [
       {
         "command": "extension.changeCase.commands",
-        "title": "Change Case Commands"
+        "title": "Change Case: To ..."
       },
       {
         "command": "extension.changeCase.camel",
-        "title": "Change Case camel"
+        "title": "Change Case: To Camel"
       },
       {
         "command": "extension.changeCase.constant",
-        "title": "Change Case constant"
+        "title": "Change Case: To Constant"
       },
       {
         "command": "extension.changeCase.dot",
-        "title": "Change Case dot"
+        "title": "Change Case: To Dot"
       },
       {
         "command": "extension.changeCase.kebab",
-        "title": "Change Case kebab"
+        "title": "Change Case: To Kebab"
       },
       {
         "command": "extension.changeCase.lower",
-        "title": "Change Case lower"
+        "title": "Change Case: To Lower"
       },
       {
         "command": "extension.changeCase.lowerFirst",
-        "title": "Change Case lowerFirst"
+        "title": "Change Case: To Lower First"
       },
       {
         "command": "extension.changeCase.no",
-        "title": "Change Case no"
+        "title": "Change Case: To No"
       },
       {
         "command": "extension.changeCase.param",
-        "title": "Change Case param"
+        "title": "Change Case: To Param"
       },
       {
         "command": "extension.changeCase.pascal",
-        "title": "Change Case pascal"
+        "title": "Change Case: To Pascal"
       },
       {
         "command": "extension.changeCase.path",
-        "title": "Change Case path"
+        "title": "Change Case: To Path"
       },
       {
         "command": "extension.changeCase.sentence",
-        "title": "Change Case sentence"
+        "title": "Change Case: To Sentence"
       },
       {
         "command": "extension.changeCase.snake",
-        "title": "Change Case snake"
+        "title": "Change Case: To Snake"
       },
       {
         "command": "extension.changeCase.swap",
-        "title": "Change Case swap"
+        "title": "Change Case: To Swap"
       },
       {
         "command": "extension.changeCase.title",
-        "title": "Change Case title"
+        "title": "Change Case: To Title"
       },
       {
         "command": "extension.changeCase.upper",
-        "title": "Change Case upper"
+        "title": "Change Case: To Upper"
       },
       {
         "command": "extension.changeCase.upperFirst",
-        "title": "Change Case upperFirst"
+        "title": "Change Case: To Upper First"
       }
     ]
   },
