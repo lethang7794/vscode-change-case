@@ -135,7 +135,10 @@ export function changeCaseCommands() {
     // otherwise use the description used in COMMAND_DEFINITIONS
     const items: vscode.QuickPickItem[] = COMMAND_DEFINITIONS.map(c => ({
         label: c.label,
-        description: firstSelectedText ? `Convert to ${c.func(firstSelectedText)}` : c.description
+        description: '',
+        detail: firstSelectedText
+          ? `  Convert to: ${c.func(firstSelectedText)}`
+          : `  Example result: ${c.example}`,
     }));
 
     vscode.window.showQuickPick(items)
