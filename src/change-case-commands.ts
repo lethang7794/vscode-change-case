@@ -4,6 +4,8 @@ import * as changeCase from 'change-case';
 const lodashUniq = require('lodash.uniq');
 const lodashRange = require('lodash.range');
 
+const QUICK_PICK_ITEM_KIND_SEPARATOR = -1
+
 export const COMMAND_LABELS = {
   camel: 'Camel',
   constant: 'Constant',
@@ -25,6 +27,10 @@ export const COMMAND_LABELS = {
 
 const COMMAND_DEFINITIONS = [
   // Programming
+  { 
+    label: "Programming",
+    kind: QUICK_PICK_ITEM_KIND_SEPARATOR
+  },
   {
     label: COMMAND_LABELS.camel,
     example: 'theQuickBrownFoxJumpsOverTheLazyDog',
@@ -77,6 +83,10 @@ const COMMAND_DEFINITIONS = [
     func: changeCase.snake,
   },
   // Writing
+  { 
+    label: "Writing",
+    kind: QUICK_PICK_ITEM_KIND_SEPARATOR
+  },
   {
     label: COMMAND_LABELS.title,
     example: 'The Quick Brown Fox Jumps Over The Lazy Dog',
@@ -103,6 +113,10 @@ const COMMAND_DEFINITIONS = [
     func: changeCase.upper,
   },
   // Others
+  { 
+    label: "Others",
+    kind: QUICK_PICK_ITEM_KIND_SEPARATOR
+  },
   {
     label: COMMAND_LABELS.no,
     example: 'the quick brown fox jumps over the lazy dog',
@@ -138,6 +152,7 @@ export function changeCaseCommands() {
     // otherwise use the description used in COMMAND_DEFINITIONS
     const items: vscode.QuickPickItem[] = COMMAND_DEFINITIONS.map(c => ({
         label: c.label,
+        kind: c.kind,
         description: '',
         detail: (firstSelectedText && c.func)
           ? `  Convert to: ${c.func(firstSelectedText)}`
