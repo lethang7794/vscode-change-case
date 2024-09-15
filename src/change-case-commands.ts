@@ -5,22 +5,22 @@ const lodashUniq = require('lodash.uniq');
 const lodashRange = require('lodash.range');
 
 export const COMMAND_LABELS = {
-  camel: 'camel',
-  constant: 'constant',
-  dot: 'dot',
-  kebab: 'kebab',
-  lower: 'lower',
-  lowerFirst: 'lowerFirst',
-  no: 'no',
-  param: 'param',
-  pascal: 'pascal',
-  path: 'path',
-  sentence: 'sentence',
-  snake: 'snake',
-  swap: 'swap',
-  title: 'title',
-  upper: 'upper',
-  upperFirst: 'upperFirst',
+  camel: 'Camel',
+  constant: 'Constant',
+  dot: 'Dot',
+  kebab: 'Kebab',
+  lower: 'Lower',
+  lowerFirst: 'Lower First',
+  no: 'No',
+  param: 'Param',
+  pascal: 'Pascal',
+  path: 'Path',
+  sentence: 'Sentence',
+  snake: 'Snake',
+  swap: 'Swap',
+  title: 'Title',
+  upper: 'Upper',
+  upperFirst: 'Upper First',
 };
 
 const COMMAND_DEFINITIONS = [
