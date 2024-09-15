@@ -24,6 +24,7 @@ export const COMMAND_LABELS = {
 };
 
 const COMMAND_DEFINITIONS = [
+  // Programming
   {
     label: COMMAND_LABELS.camel,
     example: 'theQuickBrownFoxJumpsOverTheLazyDog',
@@ -51,25 +52,6 @@ const COMMAND_DEFINITIONS = [
     func: changeCase.param,
   },
   {
-    label: COMMAND_LABELS.lower,
-    example: 'the quick brown fox jumps over the lazy dog',
-    description: 'Convert to a string in lower case',
-    func: changeCase.lower,
-  },
-  {
-    label: COMMAND_LABELS.lowerFirst,
-    example: 'the quick brown fox jumps over the lazy dog',
-    description: 'Convert to a string with the first character lower cased',
-    func: changeCase.lcFirst,
-  },
-  {
-    label: COMMAND_LABELS.no,
-    example: 'the quick brown fox jumps over the lazy dog',
-    description:
-      'Convert the string without any casing (lower case, space separated)',
-    func: changeCase.no,
-  },
-  {
     label: COMMAND_LABELS.param,
     example: 'the-quick-brown-fox-jumps-over-the-lazy-dog',
     description: 'Convert to a lower case, dash separated string',
@@ -89,23 +71,12 @@ const COMMAND_DEFINITIONS = [
     func: changeCase.path,
   },
   {
-    label: COMMAND_LABELS.sentence,
-    example: 'The quick brown fox jumps over the lazy dog',
-    description: 'Convert to a lower case, space separated string',
-    func: changeCase.sentence,
-  },
-  {
     label: COMMAND_LABELS.snake,
     example: 'the_quick_brown_fox_jumps_over_the_lazy_dog',
     description: 'Convert to a lower case, underscore separated string',
     func: changeCase.snake,
   },
-  {
-    label: COMMAND_LABELS.swap,
-    example: 'tHE QUICK BROWN FOX JUMPS OVER THE LAZY DOG',
-    description: 'Convert to a string with every character case reversed',
-    func: changeCase.swap,
-  },
+  // Writing
   {
     label: COMMAND_LABELS.title,
     example: 'The Quick Brown Fox Jumps Over The Lazy Dog',
@@ -114,10 +85,42 @@ const COMMAND_DEFINITIONS = [
     func: changeCase.title,
   },
   {
+    label: COMMAND_LABELS.sentence,
+    example: 'The quick brown fox jumps over the lazy dog',
+    description: 'Convert to a lower case, space separated string',
+    func: changeCase.sentence,
+  },
+  {
+    label: COMMAND_LABELS.lower,
+    example: 'the quick brown fox jumps over the lazy dog',
+    description: 'Convert to a string in lower case',
+    func: changeCase.lower,
+  },
+  {
     label: COMMAND_LABELS.upper,
     example: 'THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG',
     description: 'Convert to a string in upper case',
     func: changeCase.upper,
+  },
+  // Others
+  {
+    label: COMMAND_LABELS.no,
+    example: 'the quick brown fox jumps over the lazy dog',
+    description:
+      'Convert the string without any casing (lower case, space separated)',
+    func: changeCase.no,
+  },
+  {
+    label: COMMAND_LABELS.swap,
+    example: 'tHE QUICK BROWN FOX JUMPS OVER THE LAZY DOG',
+    description: 'Convert to a string with every character case reversed',
+    func: changeCase.swap,
+  },
+  {
+    label: COMMAND_LABELS.lowerFirst,
+    example: 'the quick brown fox jumps over the lazy dog',
+    description: 'Convert to a string with the first character lower cased',
+    func: changeCase.lcFirst,
   },
   {
     label: COMMAND_LABELS.upperFirst,
