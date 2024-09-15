@@ -5,41 +5,126 @@ const lodashUniq = require('lodash.uniq');
 const lodashRange = require('lodash.range');
 
 export const COMMAND_LABELS = {
-    camel: 'camel',
-    constant: 'constant',
-    dot: 'dot',
-    kebab: 'kebab',
-    lower: 'lower',
-    lowerFirst: 'lowerFirst',
-    no: 'no',
-    param: 'param',
-    pascal: 'pascal',
-    path: 'path',
-    sentence: 'sentence',
-    snake: 'snake',
-    swap: 'swap',
-    title: 'title',
-    upper: 'upper',
-    upperFirst: 'upperFirst'
+  camel: 'camel',
+  constant: 'constant',
+  dot: 'dot',
+  kebab: 'kebab',
+  lower: 'lower',
+  lowerFirst: 'lowerFirst',
+  no: 'no',
+  param: 'param',
+  pascal: 'pascal',
+  path: 'path',
+  sentence: 'sentence',
+  snake: 'snake',
+  swap: 'swap',
+  title: 'title',
+  upper: 'upper',
+  upperFirst: 'upperFirst',
 };
 
 const COMMAND_DEFINITIONS = [
-    { label: COMMAND_LABELS.camel, description: 'Convert to a string with the separators denoted by having the next letter capitalised', func: changeCase.camel },
-    { label: COMMAND_LABELS.constant, description: 'Convert to an upper case, underscore separated string', func: changeCase.constant },
-    { label: COMMAND_LABELS.dot, description: 'Convert to a lower case, period separated string', func: changeCase.dot },
-    { label: COMMAND_LABELS.kebab, description: 'Convert to a lower case, dash separated string (alias for param case)', func: changeCase.param },
-    { label: COMMAND_LABELS.lower, description: 'Convert to a string in lower case', func: changeCase.lower },
-    { label: COMMAND_LABELS.lowerFirst, description: 'Convert to a string with the first character lower cased', func: changeCase.lcFirst },
-    { label: COMMAND_LABELS.no, description: 'Convert the string without any casing (lower case, space separated)', func: changeCase.no },
-    { label: COMMAND_LABELS.param, description: 'Convert to a lower case, dash separated string', func: changeCase.param },
-    { label: COMMAND_LABELS.pascal, description: 'Convert to a string denoted in the same fashion as camelCase, but with the first letter also capitalised', func: changeCase.pascal },
-    { label: COMMAND_LABELS.path, description: 'Convert to a lower case, slash separated string', func: changeCase.path },
-    { label: COMMAND_LABELS.sentence, description: 'Convert to a lower case, space separated string', func: changeCase.sentence },
-    { label: COMMAND_LABELS.snake, description: 'Convert to a lower case, underscore separated string', func: changeCase.snake },
-    { label: COMMAND_LABELS.swap, description: 'Convert to a string with every character case reversed', func: changeCase.swap },
-    { label: COMMAND_LABELS.title, description: 'Convert to a space separated string with the first character of every word upper cased', func: changeCase.title },
-    { label: COMMAND_LABELS.upper, description: 'Convert to a string in upper case', func: changeCase.upper },
-    { label: COMMAND_LABELS.upperFirst, description: 'Convert to a string with the first character upper cased', func: changeCase.ucFirst }
+  {
+    label: COMMAND_LABELS.camel,
+    example: 'theQuickBrownFoxJumpsOverTheLazyDog',
+    description:
+      'Convert to a string with the separators denoted by having the next letter capitalised',
+    func: changeCase.camel,
+  },
+  {
+    label: COMMAND_LABELS.constant,
+    example: 'THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG',
+    description: 'Convert to an upper case, underscore separated string',
+    func: changeCase.constant,
+  },
+  {
+    label: COMMAND_LABELS.dot,
+    example: 'the.quick.brown.fox.jumps.over.the.lazy.dog',
+    description: 'Convert to a lower case, period separated string',
+    func: changeCase.dot,
+  },
+  {
+    label: COMMAND_LABELS.kebab,
+    example: 'the-quick-brown-fox-jumps-over-the-lazy-dog',
+    description:
+      'Convert to a lower case, dash separated string (alias for param case)',
+    func: changeCase.param,
+  },
+  {
+    label: COMMAND_LABELS.lower,
+    example: 'the quick brown fox jumps over the lazy dog',
+    description: 'Convert to a string in lower case',
+    func: changeCase.lower,
+  },
+  {
+    label: COMMAND_LABELS.lowerFirst,
+    example: 'the quick brown fox jumps over the lazy dog',
+    description: 'Convert to a string with the first character lower cased',
+    func: changeCase.lcFirst,
+  },
+  {
+    label: COMMAND_LABELS.no,
+    example: 'the quick brown fox jumps over the lazy dog',
+    description:
+      'Convert the string without any casing (lower case, space separated)',
+    func: changeCase.no,
+  },
+  {
+    label: COMMAND_LABELS.param,
+    example: 'the-quick-brown-fox-jumps-over-the-lazy-dog',
+    description: 'Convert to a lower case, dash separated string',
+    func: changeCase.param,
+  },
+  {
+    label: COMMAND_LABELS.pascal,
+    example: 'TheQuickBrownFoxJumpsOverTheLazyDog',
+    description:
+      'Convert to a string denoted in the same fashion as camelCase, but with the first letter also capitalised',
+    func: changeCase.pascal,
+  },
+  {
+    label: COMMAND_LABELS.path,
+    example: 'the/quick/brown/fox/jumps/over/the/lazy/dog',
+    description: 'Convert to a lower case, slash separated string',
+    func: changeCase.path,
+  },
+  {
+    label: COMMAND_LABELS.sentence,
+    example: 'The quick brown fox jumps over the lazy dog',
+    description: 'Convert to a lower case, space separated string',
+    func: changeCase.sentence,
+  },
+  {
+    label: COMMAND_LABELS.snake,
+    example: 'the_quick_brown_fox_jumps_over_the_lazy_dog',
+    description: 'Convert to a lower case, underscore separated string',
+    func: changeCase.snake,
+  },
+  {
+    label: COMMAND_LABELS.swap,
+    example: 'tHE QUICK BROWN FOX JUMPS OVER THE LAZY DOG',
+    description: 'Convert to a string with every character case reversed',
+    func: changeCase.swap,
+  },
+  {
+    label: COMMAND_LABELS.title,
+    example: 'The Quick Brown Fox Jumps Over The Lazy Dog',
+    description:
+      'Convert to a space separated string with the first character of every word upper cased',
+    func: changeCase.title,
+  },
+  {
+    label: COMMAND_LABELS.upper,
+    example: 'THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG',
+    description: 'Convert to a string in upper case',
+    func: changeCase.upper,
+  },
+  {
+    label: COMMAND_LABELS.upperFirst,
+    example: 'The quick brown fox jumps over the lazy dog',
+    description: 'Convert to a string with the first character upper cased',
+    func: changeCase.ucFirst,
+  },
 ];
 
 export function changeCaseCommands() {
