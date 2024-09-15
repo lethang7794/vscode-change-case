@@ -52,15 +52,10 @@ const COMMAND_DEFINITIONS = [
   },
   {
     label: COMMAND_LABELS.kebab,
+    aka: [COMMAND_LABELS.param],
     example: 'the-quick-brown-fox-jumps-over-the-lazy-dog',
     description:
       'Convert to a lower case, dash separated string (alias for param case)',
-    func: changeCase.param,
-  },
-  {
-    label: COMMAND_LABELS.param,
-    example: 'the-quick-brown-fox-jumps-over-the-lazy-dog',
-    description: 'Convert to a lower case, dash separated string',
     func: changeCase.param,
   },
   {
@@ -153,13 +148,13 @@ export function changeCaseCommands() {
     const items: vscode.QuickPickItem[] = COMMAND_DEFINITIONS.map(c => ({
         label: c.label,
         kind: c.kind,
-        description: '',
+        description: c.aka && c.aka.join(', '),
         detail: (firstSelectedText && c.func)
-          ? `  Convert to: ${c.func(firstSelectedText)}`
-          : `  Example result: ${c.example}`,
+          ? `   Change to: ${c.func(firstSelectedText)}`
+          : `   Example result: ${c.example}`,
     }));
 
-    vscode.window.showQuickPick(items)
+    vscode.window.showQuickPick(items, { placeHolder: "Change Case: To ...", matchOnDescription: true } )
         .then(command => runCommand(command.label));
 }
 
