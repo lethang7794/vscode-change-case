@@ -232,8 +232,10 @@ function getSelectedTextIfOnlyOneSelection(): string {
     const editor = vscode.window.activeTextEditor;
     const { document, selection, selections } = editor;
 
-    // check if there's only one selection or if the selection spans multiple lines
-    if (selections.length > 1 || selection.start.line !== selection.end.line) return undefined;
+  // check if the selection spans multiple lines
+  if (selection.start.line !== selection.end.line) {
+    return undefined;
+  }
 
     return getSelectedText(selections[0], document).text;
 }
